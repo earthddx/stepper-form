@@ -109,21 +109,6 @@ function StepTwo() {
               ))}
             </select>
           </Field>
-          <Field
-            name="phone"
-            label="Phone Number"
-            error={errors.phone}
-            hint="Include country code, e.g. +1 555 123 4567"
-            required
-          >
-            <input
-              id="phone"
-              type="tel"
-              placeholder="+1 (555) 123-4567"
-              className={cn(inputCls, errors.phone && inputErrorCls)}
-              {...register("phone")}
-            />
-          </Field>
         </div>
       </section>
       <Navigation />
