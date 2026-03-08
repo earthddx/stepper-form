@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import OnboardingLayout from "@/pages/onboard/layout";
+import OnboardingLayout from "@/pages/onboard/Layout";
 import StepOne from "@/pages/onboard/StepOne";
 import StepTwo from "@/pages/onboard/StepTwo";
 import StepThree from "@/pages/onboard/StepThree";
