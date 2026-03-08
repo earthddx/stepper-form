@@ -4,16 +4,26 @@ import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, type OnboardingFormData } from "@/schemas/onboarding.schema";
 
-function layout() {
+function Layout() {
   const form = useForm<OnboardingFormData>({
     mode: "onSubmit",
     resolver: zodResolver(schema),
     defaultValues: {
+      // Step 1
       firstName: "",
       lastName: "",
       dateOfBirth: "",
       email: "",
       phone: "",
+      // Step 2
+      jobTitle: "",
+      startDate: "",
+      // Step 3
+      mealSubsidy: false,
+      phoneAllowance: false,
+      parkingRequired: false,
+      parkingSpot: "",
+      retirementContribution: 0,
     },
   });
 
@@ -43,4 +53,4 @@ function layout() {
   );
 }
 
-export default layout;
+export default Layout;
