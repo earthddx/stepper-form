@@ -23,7 +23,6 @@ export const DENTAL_COVERAGE = ["NONE", "BASIC", "PREMIUM"] as const;
 export const VISION_COVERAGE = ["NONE", "BASIC", "PREMIUM"] as const;
 export const EQUIPMENT_PREFERENCES = ["MACBOOK", "WINDOWS", "LINUX"] as const;
 export const WORK_FROM_HOME_ALLOWANCE = ["0", "500", "1000", "1500"] as const;
-
 export const schema = z.object({
   // Step 1 - Personal Details
   firstName: z.string().min(1, "First name is required").max(50),
@@ -41,7 +40,13 @@ export const schema = z.object({
     .check(z.email("Invalid email address")),
   phone: z.string().regex(/^\+?[\d\s\-().]{7,20}$/, "Invalid phone number"),
   gender: z.enum(GENDERS),
-
+  address: z.object({
+    street: z.string().min(1, "Street is required"),
+    city: z.string().min(1, "City is required"),
+    state: z.string().min(1, "State/Province is required"),
+    country: z.string().min(1, "Country is required"),
+    postalCode: z.string().min(1, "Postal code is required"),
+  }),
   // Step 2 - Employment Details
   department: z.enum(DEPARTMENTS),
   jobTitle: z.string().min(1, "Job title is required").max(50),
@@ -72,6 +77,7 @@ export const STEP1_FIELDS: Array<keyof OnboardingFormData> = [
   "gender",
   "email",
   "phone",
+  "address",
 ];
 
 export const STEP2_FIELDS: Array<keyof OnboardingFormData> = [

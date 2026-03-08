@@ -15,6 +15,7 @@ function Layout() {
       dateOfBirth: "",
       email: "",
       phone: "",
+      address: { street: "", city: "", state: "", country: "", postalCode: "" },
       // Step 2
       jobTitle: "",
       startDate: "",

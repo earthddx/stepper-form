@@ -102,6 +102,85 @@ function StepOne() {
           </Field>
         </div>
       </section>
+      <section className="space-y-4">
+        <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Home Address
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Field
+            name="address.street"
+            label="Street Address"
+            error={errors.address?.street}
+            required
+          >
+            <input
+              id="address.street"
+              {...register("address.street")}
+              className={cn(inputCls, errors.address?.street && inputErrorCls)}
+              placeholder="123 Main Street"
+            />
+          </Field>
+
+          <Field
+            name="address.city"
+            label="City"
+            error={errors.address?.city}
+            required
+          >
+            <input
+              id="address.city"
+              {...register("address.city")}
+              className={cn(inputCls, errors.address?.city && inputErrorCls)}
+              placeholder="Los Angeles"
+            />
+          </Field>
+
+          <Field
+            name="address.state"
+            label="State / Province"
+            error={errors.address?.state}
+            required
+          >
+            <input
+              id="address.state"
+              {...register("address.state")}
+              className={cn(inputCls, errors.address?.state && inputErrorCls)}
+              placeholder="California"
+            />
+          </Field>
+
+          <Field
+            name="address.country"
+            label="Country"
+            error={errors.address?.country}
+            required
+          >
+            <input
+              id="address.country"
+              {...register("address.country")}
+              className={cn(inputCls, errors.address?.country && inputErrorCls)}
+              placeholder="United States"
+            />
+          </Field>
+
+          <Field
+            name="address.postalCode"
+            label="Postal Code"
+            error={errors.address?.postalCode}
+            required
+          >
+            <input
+              id="address.postalCode"
+              {...register("address.postalCode")}
+              className={cn(
+                inputCls,
+                errors.address?.postalCode && inputErrorCls,
+              )}
+              placeholder="12345"
+            />
+          </Field>
+        </div>
+      </section>
       <Navigation />
     </div>
   );
