@@ -1,9 +1,21 @@
 import Stepper from "@/components/ui/Stepper";
 import { Link, Outlet } from "react-router-dom";
 import { useForm, FormProvider } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { schema, type OnboardingFormData } from "@/schemas/onboarding.schema";
 
 function layout() {
-  const form = useForm();
+  const form = useForm<OnboardingFormData>({
+    mode: "onSubmit",
+    resolver: zodResolver(schema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      dateOfBirth: "",
+      email: "",
+      phone: "",
+    },
+  });
 
   return (
     <div className="min-h-screen bg-background">
