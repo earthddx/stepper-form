@@ -18,6 +18,11 @@ export const EMPLOYMENT_TYPES = [
   "INTERNSHIP",
 ] as const;
 export const WORK_LOCATIONS = ["REMOTE", "ONSITE", "HYBRID"] as const;
+export const HEALTH_PLANS = ["BASIC", "STANDARD", "PREMIUM"] as const;
+export const DENTAL_COVERAGE = ["NONE", "BASIC", "PREMIUM"] as const;
+export const VISION_COVERAGE = ["NONE", "BASIC", "PREMIUM"] as const;
+export const EQUIPMENT_PREFERENCES = ["MACBOOK", "WINDOWS", "LINUX"] as const;
+export const WORK_FROM_HOME_ALLOWANCE = ["0", "500", "1000", "1500"] as const;
 
 export const schema = z.object({
   // Step 1 - Personal Details
@@ -43,7 +48,20 @@ export const schema = z.object({
   startDate: z.string().min(1, "Start date is required"),
   employmentType: z.enum(EMPLOYMENT_TYPES),
   workLocation: z.enum(WORK_LOCATIONS),
+
+  // Step 3 - Benefits Selection
+  healthPlan: z.enum(HEALTH_PLANS),
+  dentalCoverage: z.enum(DENTAL_COVERAGE),
+  visionCoverage: z.enum(VISION_COVERAGE),
+  retirementContribution: z.number().min(0, "Min 0%").max(15, "Max 15%"),
+  workFromHomeAllowance: z.enum(WORK_FROM_HOME_ALLOWANCE),
+  phoneAllowance: z.boolean(),
+  equipmentPreference: z.enum(EQUIPMENT_PREFERENCES),
+  mealSubsidy: z.boolean(),
+  parkingRequired: z.boolean(),
+  parkingSpot: z.string().max(20).optional(),
 });
+// .superRefine((data, ctx) => { for conditionally required fields like parkingSpot })
 
 export type OnboardingFormData = z.infer<typeof schema>;
 
@@ -62,4 +80,17 @@ export const STEP2_FIELDS: Array<keyof OnboardingFormData> = [
   "startDate",
   "employmentType",
   "workLocation",
+];
+
+export const STEP3_FIELDS: Array<keyof OnboardingFormData> = [
+  "healthPlan",
+  "dentalCoverage",
+  "visionCoverage",
+  "retirementContribution",
+  "workFromHomeAllowance",
+  "phoneAllowance",
+  "equipmentPreference",
+  "mealSubsidy",
+  "parkingRequired",
+  "parkingSpot",
 ];
