@@ -9,9 +9,10 @@ function Hero() {
       </h1>
       <p className="text-muted-foreground leading-relaxed">
         A sandbox built around a 4-step employee onboarding flow — Personal,
-        Employment, Benefits, and Review. Each step is validated with Zod and
-        React Hook Form, state is preserved as you move between steps, and the
-        final submission is handled by TanStack Query.
+        Employment, Benefits, and Review — spanning 30 fields across a single
+        Zod schema. Each step is validated independently with React Hook Form,
+        state is preserved as you move between steps, and the final submission
+        is handled by TanStack Query.
       </p>
     </div>
   );

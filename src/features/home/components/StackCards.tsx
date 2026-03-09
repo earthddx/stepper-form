@@ -2,22 +2,22 @@ const STACK = [
   {
     name: "React Hook Form",
     description:
-      "Manages each step's form state without re-renders on every keystroke. useFormContext shares state across the step tree without prop drilling.",
+      "A single useForm instance lives in the layout and is shared to every step via FormProvider + useFormContext. Values persist across route changes because the layout never unmounts, so navigating back restores exactly what was typed.",
   },
   {
     name: "Zod",
     description:
-      "Defines a per-step schema that validates only the current step's fields on submit. Derives TypeScript types automatically via z.infer<>.",
+      "One schema covers all four steps. Per-step field arrays (STEP1_FIELDS, etc.) are passed to trigger() on Next so only the current step is validated before advancing. The full schema runs on final submit.",
   },
   {
     name: "TanStack Query",
     description:
-      "Handles server state: useMutation dispatches the final merged payload, and invalidateQueries refreshes any dependent data after a successful submission.",
+      "useMutation wraps api.submit() on the final step. On success it calls invalidateQueries([\"applications\"]) so the submissions list on the home page automatically refetches the updated data.",
   },
   {
     name: "React Router",
     description:
-      "Powers the step-to-step navigation via nested routes under /onboard. Each step is a child route, and the layout renders the shared progress stepper.",
+      "Each step is a child route under /onboard, rendered via <Outlet /> in the shared layout. The layout owns the form state and the progress stepper, while each child owns only its own fields.",
   },
 ];
 
