@@ -23,8 +23,11 @@ function Layout() {
       mealSubsidy: false,
       phoneAllowance: false,
       parkingRequired: false,
+      lifeInsurance: false,
       parkingSpot: "",
       retirementContribution: 0,
+      // Step 4
+      signature: "",
     },
   });
 
