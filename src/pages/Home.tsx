@@ -12,16 +12,15 @@ function Home() {
         {/* Main content */}
         <div className="flex-1 flex flex-col space-y-10">
           <Hero />
-          <Why />
-          <Steps />
-          <StackCards />
-          <CTA />
-        </div>
-
-        {/* Sidebar */}
-        <aside className="w-80 shrink-0 sticky top-6 pt-10">
           <Submissions />
-        </aside>
+          <CTA />
+          <section className="space-y-8">
+            <h2 className="text-base font-semibold text-foreground">About this demo</h2>
+            <Why />
+            <Steps />
+            <StackCards />
+          </section>
+        </div>
       </div>
     </div>
   );
