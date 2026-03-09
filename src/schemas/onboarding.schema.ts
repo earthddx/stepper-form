@@ -65,6 +65,14 @@ export const schema = z.object({
   mealSubsidy: z.boolean(),
   parkingRequired: z.boolean(),
   parkingSpot: z.string().max(20).optional(),
+  lifeInsurance: z.boolean(),
+
+  //Step 4 - Agreement
+  agreeToTerms: z.literal(true, { message: "You must agree to the terms" }),
+  agreeToBackgroundCheck: z.literal(true, {
+    message: "You must consent to background check",
+  }),
+  signature: z.string().min(2, "Please type your full name as signature"),
 });
 // .superRefine((data, ctx) => { for conditionally required fields like parkingSpot })
 
@@ -99,4 +107,11 @@ export const STEP3_FIELDS: Array<keyof OnboardingFormData> = [
   "mealSubsidy",
   "parkingRequired",
   "parkingSpot",
+  "lifeInsurance",
+];
+
+export const STEP4_FIELDS: Array<keyof OnboardingFormData> = [
+  "agreeToTerms",
+  "agreeToBackgroundCheck",
+  "signature",
 ];
