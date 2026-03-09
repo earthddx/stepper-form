@@ -2,7 +2,7 @@
 
 A four-step employee onboarding form built as a learning project to explore how React Router, React Hook Form, Zod, and TanStack Query work together in a real-world flow.
 
-**Live demo:** https://nourished-narwhal.github.io/stepper-form
+**Live demo:** https://earthddx.github.io/stepper-form/
 
 ## What it covers
 
