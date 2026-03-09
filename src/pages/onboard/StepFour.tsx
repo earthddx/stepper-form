@@ -6,7 +6,6 @@ import {
   STEP1_FIELDS,
   STEP2_FIELDS,
   STEP3_FIELDS,
-  STEP4_FIELDS,
   type OnboardingFormData,
 } from "@/schemas/onboarding.schema";
 import { useFormContext } from "react-hook-form";
@@ -44,11 +43,10 @@ const Agreement = () => {
   const {
     register,
     handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useFormContext<OnboardingFormData>();
 
-  const { mutate, isPending } = useSubmitApplication();
+  const { mutate } = useSubmitApplication();
   const navigate = useNavigate();
 
   const navigateToFirstError = (errorKeys: string[]) => {
