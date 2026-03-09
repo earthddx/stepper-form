@@ -87,6 +87,15 @@ function StepThree() {
               ))}
             </select>
           </Field>
+          <label className="flex items-center gap-3 cursor-pointer">
+            <input
+              id="lifeInsurance"
+              type="checkbox"
+              {...register("lifeInsurance")}
+              className="w-4 h-4 rounded border-input accent-primary"
+            />
+            <span className="text-sm text-foreground">Life Insurance</span>
+          </label>
         </div>
       </section>
       {/* Financial Perks */}
@@ -254,7 +263,7 @@ const Navigation = () => {
         onClick={handleNext}
         className="px-6 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:opacity-90 transition-opacity"
       >
-        Next: Benefits →
+        Next: Review →
       </button>
     </div>
   );
